@@ -18,4 +18,4 @@ $myview.Create()
 # Remove the view.   
 # $myview.Drop();
 
-Set-Location c
+Set-Location C:

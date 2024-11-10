@@ -3,7 +3,7 @@
 
 # Remember to replace `COMPUTER_NAME` with your SQL Server instance name 
 # and `SQLEXPRESS22` with the appropriate instance name.
-[string] $ConnectionString = "Server=COMPUTER_NAME\SQLEXPRESS22;Database=test3;User ID=$SqlAuthLoginName;Password=$SqlAuthPassword;Encrypt=false;TrustServerCertificate=False;Connection Timeout=30;"
+[string] $ConnectionString = "Server=JAYZEE\SQLEXPRESS22;Database=test3;User ID=$SqlAuthLoginName;Password=$SqlAuthPassword;Encrypt=false;TrustServerCertificate=False;Connection Timeout=30;"
 
 $Connection = New-Object System.Data.SqlClient.SqlConnection
 $Connection.ConnectionString = $ConnectionString
@@ -13,10 +13,9 @@ $Connection.Open();
 $Command = $Connection.CreateCommand()
 $Command.CommandText = 
 "
-CREATE TABLE Test_Table4
-(c1 INT,
-c2 VARCHAR(50)
-)
+CREATE VIEW v1 AS
+SELECT ID, Name 
+FROM Test_Table
 "
     
 $reader = $Command.ExecuteReader()
